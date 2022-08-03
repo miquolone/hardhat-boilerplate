@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "A boilerplate repository to get you started with Hardhat and Ethereum development",
   "scripts": {
-    "test": "hardhat test"
+    "test": "hardhat test",
+    "node": "hardhat node"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,7 @@
     "@nomiclabs/hardhat-etherscan": "^3.0.0",
     "chai": "^4.2.0",
     "ethers": "^5.4.7",
-    "hardhat": "^2.9.9",
+    "hardhat": "^2.10.1",
     "hardhat-gas-reporter": "^1.0.8",
     "solidity-coverage": "^0.7.21"
   }
