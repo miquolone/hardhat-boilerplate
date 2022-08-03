@@ -22,7 +22,7 @@ import { NoTokensMessage } from "./NoTokensMessage";
 // This is the Hardhat Network id that we set in our hardhat.config.js.
 // Here's a list of network ids https://docs.metamask.io/guide/ethereum-provider.html#properties
 // to use when deploying to other networks.
-const HARDHAT_NETWORK_ID = '1337';
+const HARDHAT_NETWORK_ID = '31337';
 
 // This is an error code that indicates that the user canceled a transaction
 const ERROR_CODE_TX_REJECTED_BY_USER = 4001;
@@ -286,16 +286,20 @@ export class Dapp extends React.Component {
     // This method handles all of those things, so keep reading to learn how to
     // do it.
 
+    console.log(1);
     try {
       // If a transaction fails, we save that error in the component's state.
       // We only save one such error, so before sending a second transaction, we
       // clear it.
       this._dismissTransactionError();
+      console.log(2);
 
       // We send the transaction, and save its hash in the Dapp's state. This
       // way we can indicate that we are waiting for it to be mined.
       const tx = await this._token.transfer(to, amount);
+      console.log(3);
       this.setState({ txBeingSent: tx.hash });
+      console.log(4);
 
       // We use .wait() to wait for the transaction to be mined. This method
       // returns the transaction's receipt.
@@ -356,6 +360,7 @@ export class Dapp extends React.Component {
 
   // This method checks if Metamask selected network is Localhost:8545 
   _checkNetwork() {
+    console.log(HARDHAT_NETWORK_ID);
     if (window.ethereum.networkVersion === HARDHAT_NETWORK_ID) {
       return true;
     }
